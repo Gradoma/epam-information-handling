@@ -1,13 +1,23 @@
 package by.epamtraining.information_handling_task.parser;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TextParser extends AbstractParser {
-    AbstractParser nextParser = super.nextParser;
+    private static final String DELIM = "   ";
+
+    public TextParser(){
+        super(new ParagraphParser());
+    }
 
     @Override
-    public boolean parse(String stringForParsing) {
+    public void parse(String stringForParsing) {
         // parsing to parag
-        String s = stringForParsing + " text ";
-        System.out.println(s);
-        return super.parseNext(s);
+        String[] paragraphArray = stringForParsing.split(DELIM);
+        List<String> paragraphList = Arrays.asList(paragraphArray);
+        for (String parag : paragraphList){
+            System.out.println("parag: " + parag);
+            super.parseNext(parag);
+        }
     }
 }

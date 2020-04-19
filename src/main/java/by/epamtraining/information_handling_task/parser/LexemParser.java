@@ -1,13 +1,16 @@
 package by.epamtraining.information_handling_task.parser;
 
 public class LexemParser extends AbstractParser {
-    AbstractParser next = null;
+
+    public LexemParser(){
+        super(null);
+    }
 
     @Override
-    public boolean parse(String stringForParsing) {
+    public void parse(String stringForParsing) {
         //
         String s = stringForParsing + " lexem ";
         System.out.println(s);
-        return parseNext(s);
+        parseNext(s);
     }
 }
