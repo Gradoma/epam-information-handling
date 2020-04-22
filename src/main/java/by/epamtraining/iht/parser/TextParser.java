@@ -29,7 +29,6 @@ public class TextParser extends AbstractParser {
             int indexStart = matcher.start(1);
             indexEnd = matcher.start(2);
             String paragraph = stringForParsing.substring(indexStart, indexEnd);
-            System.out.println("paragraph:=" + paragraph);
             childComponent = parseNext(paragraph);
             try{
                 textComponent.add(childComponent);

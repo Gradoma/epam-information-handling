@@ -23,7 +23,6 @@ public class SentenceParser extends AbstractParser {
         Matcher matcher = LEXEM.matcher(stringForParsing);
         List<String> lexemList = new ArrayList<>();
         while (matcher.find()){
-            System.out.println("        lexem:=" + matcher.group());
             lexemList.add(matcher.group());
         }
         Component childComponent;

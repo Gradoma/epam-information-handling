@@ -18,7 +18,6 @@ public class LexemParser extends AbstractParser {
         char[] charArray = stringForParsing.toCharArray();
         Component symbol;
         for (char c : charArray){
-            System.out.println("            char:=" + c);
             symbol = new Symbol(c);
             try{
                 lexemComponent.add(symbol);

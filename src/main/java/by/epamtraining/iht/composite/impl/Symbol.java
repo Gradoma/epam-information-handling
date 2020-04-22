@@ -22,4 +22,9 @@ public class Symbol implements Component{
     public void add(Component component) throws UnhandledOperationException{
         throw new UnhandledOperationException("can't execute for this object");
     }
+
+    @Override
+    public String toString() {
+        return Character.toString(symbol);
+    }
 }

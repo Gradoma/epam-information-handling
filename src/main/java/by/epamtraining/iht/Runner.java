@@ -1,5 +1,6 @@
 package by.epamtraining.iht;
 
+import by.epamtraining.iht.composite.Component;
 import by.epamtraining.iht.parser.AbstractParser;
 import by.epamtraining.iht.parser.TextParser;
 import by.epamtraining.iht.reader.reader.FileReader;
@@ -31,6 +32,9 @@ public class Runner {
 //        }
 //        System.out.println("end");
         AbstractParser parser = new TextParser();
-        parser.parse(textString);
+        Component textComponent = parser.parse(textString);
+        String sourceText = textComponent.toString();
+
+        System.out.println("result=" + sourceText);
     }
 }

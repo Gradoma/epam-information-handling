@@ -23,7 +23,6 @@ public class ParagraphParser extends AbstractParser {
         List<String> sentenceList = new ArrayList<>();
         Matcher matcher = SENTENCE.matcher(stringForParsing);
         while (matcher.find()) {
-            System.out.println("    sentence:=" + matcher.group());
             sentenceList.add(matcher.group());
         }
         Component paragraphComponent = new TextComposite();

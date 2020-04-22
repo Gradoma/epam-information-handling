@@ -12,4 +12,13 @@ public class TextComposite implements Component {
     public void add(Component component) {
         childComponents.add(component);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Component component : childComponents){
+            stringBuilder.append(component.toString());
+        }
+        return stringBuilder.toString();
+    }
 }
