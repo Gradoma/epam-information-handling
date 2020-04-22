@@ -1,8 +1,8 @@
-package by.epamtraining.information_handling_task.reader.reader;
+package by.epamtraining.iht.reader.reader;
 
-import by.epamtraining.information_handling_task.exception.SourceFileNotFoundException;
-import by.epamtraining.information_handling_task.reader.Reader;
-import by.epamtraining.information_handling_task.validation.FileValidator;
+import by.epamtraining.iht.exception.SourceFileNotFoundException;
+import by.epamtraining.iht.reader.Reader;
+import by.epamtraining.iht.validation.FileValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

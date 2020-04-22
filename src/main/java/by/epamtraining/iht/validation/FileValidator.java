@@ -1,4 +1,4 @@
-package by.epamtraining.information_handling_task.validation;
+package by.epamtraining.iht.validation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

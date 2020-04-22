@@ -1,4 +1,4 @@
-package by.epamtraining.information_handling_task.exception;
+package by.epamtraining.iht.exception;
 
 public class SourceFileNotFoundException extends Exception {
     static final long serialVersionUID = 1L;

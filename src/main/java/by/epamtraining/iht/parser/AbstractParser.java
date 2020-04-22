@@ -1,10 +1,13 @@
-package by.epamtraining.information_handling_task.parser;
+package by.epamtraining.iht.parser;
 
+import by.epamtraining.iht.composite.Component;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
+
 public abstract class AbstractParser {
-    private AbstractParser nextParser;
+    public AbstractParser nextParser;
     private static Logger logger = LogManager.getLogger();
 
     public AbstractParser(AbstractParser nextParser){
@@ -27,13 +30,14 @@ public abstract class AbstractParser {
 //        return nextParser.parse(stringForParsing);
 //    }
 
-    public abstract void parse(String stringForParsing);
+    public abstract Component parse(String stringForParsing);
 
-    protected void parseNext(String stringForParsing){
-        logger.info("parameter: String: " + stringForParsing);
-        if(nextParser != null){
-            logger.info("next parser: " + nextParser.getClass().getName());
-            nextParser.parse(stringForParsing);
+    protected Component parseNext(String stringForParsing){
+//        logger.info("parameter: String: " + stringForParsing);
+        if(nextParser == null){
+            logger.info("next parser: null" );
+            return null;
         }
+        return nextParser.parse(stringForParsing);
     }
 }
