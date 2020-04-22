@@ -21,4 +21,30 @@ public class TextComposite implements Component {
         }
         return stringBuilder.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null){
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        TextComposite composite = (TextComposite) o;
+        if(childComponents == null){
+            return composite.childComponents == null;
+        }
+        return childComponents.equals(composite.childComponents);
+    }
+
+    @Override
+    public int hashCode() {
+        if (childComponents != null){
+            return childComponents.hashCode();
+        }
+        return 0;
+    }
 }
