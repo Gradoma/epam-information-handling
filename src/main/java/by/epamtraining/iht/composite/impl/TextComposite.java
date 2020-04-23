@@ -13,6 +13,10 @@ public class TextComposite implements Component {
         childComponents.add(component);
     }
 
+    public List<Component> getChildComponents() {
+        return childComponents;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
