@@ -1,26 +1,26 @@
 package by.epamtraining.iht.composite.impl;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.composite.TextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextComposite implements Component {
-    private List<Component> childComponents = new ArrayList<>();
+public class TextComposite implements TextComponent {
+    private List<TextComponent> childComponents = new ArrayList<>();
 
     @Override
-    public void add(Component component) {
-        childComponents.add(component);
+    public void add(TextComponent textComponent) {
+        childComponents.add(textComponent);
     }
 
-    public List<Component> getChildComponents() {
+    public List<TextComponent> getChildComponents() {
         return childComponents;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Component component : childComponents){
+        for (TextComponent component : childComponents){
             stringBuilder.append(component.toString());
         }
         return stringBuilder.toString();

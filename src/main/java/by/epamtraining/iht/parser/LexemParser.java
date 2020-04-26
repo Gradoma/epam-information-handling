@@ -1,6 +1,6 @@
 package by.epamtraining.iht.parser;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.composite.impl.Symbol;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.exception.UnhandledOperationException;
@@ -12,11 +12,11 @@ public class LexemParser extends AbstractParser {
     }
 
     @Override
-    public Component parse(String stringForParsing) {
+    public TextComponent parse(String stringForParsing) {
         //
-        Component lexemComponent = new TextComposite();
+        TextComponent lexemComponent = new TextComposite();
         char[] charArray = stringForParsing.toCharArray();
-        Component symbol;
+        TextComponent symbol;
         for (char c : charArray){
             symbol = new Symbol(c);
             try{

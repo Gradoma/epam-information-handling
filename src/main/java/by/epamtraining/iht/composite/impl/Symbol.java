@@ -1,9 +1,9 @@
 package by.epamtraining.iht.composite.impl;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.exception.UnhandledOperationException;
 
-public class Symbol implements Component{
+public class Symbol implements TextComponent {
     private char symbol;
 
     public Symbol(char symbol){
@@ -19,7 +19,7 @@ public class Symbol implements Component{
     }
 
     @Override
-    public void add(Component component) throws UnhandledOperationException{
+    public void add(TextComponent textComponent) throws UnhandledOperationException{
         throw new UnhandledOperationException("can't execute for this object");
     }
 

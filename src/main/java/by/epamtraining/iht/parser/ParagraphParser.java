@@ -1,10 +1,9 @@
 package by.epamtraining.iht.parser;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.exception.UnhandledOperationException;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -18,15 +17,15 @@ public class ParagraphParser extends AbstractParser {
     }
 
     @Override
-    public Component parse(String stringForParsing) {
+    public TextComponent parse(String stringForParsing) {
         //
         List<String> sentenceList = new ArrayList<>();
         Matcher matcher = SENTENCE.matcher(stringForParsing);
         while (matcher.find()) {
             sentenceList.add(matcher.group());
         }
-        Component paragraphComponent = new TextComposite();
-        Component childComponent;
+        TextComponent paragraphComponent = new TextComposite();
+        TextComponent childComponent;
         for (String sentence : sentenceList){
             childComponent = super.parseNext(sentence);
             try{

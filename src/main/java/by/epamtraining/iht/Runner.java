@@ -1,6 +1,7 @@
 package by.epamtraining.iht;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.action.TextAction;
+import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.parser.AbstractParser;
 import by.epamtraining.iht.parser.TextParser;
@@ -21,16 +22,20 @@ public class Runner {
         System.out.println(textString);
 
         AbstractParser parser = new TextParser();
-        Component textComponent = parser.parse(textString);
+        TextComponent textComponent = parser.parse(textString);
         String sourceText = textComponent.toString();
 
         System.out.println("result=" + sourceText);
 
         TextComposite textComposite = (TextComposite)textComponent;
-        List<Component> list = textComposite.getChildComponents();
-        for (Component c : list){
-            String s = c.toString();
-            System.out.println("child=" + s);
-        }
+//        List<TextComponent> list = textComposite.getChildComponents();
+//        for (TextComponent c : list){
+//            String s = c.toString();
+//            System.out.println("child=" + s);
+//        }
+
+        TextAction action = new TextAction();
+        action.sortParagBySentences(textComposite);
+        System.out.println(textComposite.getChildComponents());
     }
 }

@@ -1,10 +1,8 @@
 package by.epamtraining.iht.parser;
 
-import by.epamtraining.iht.composite.Component;
+import by.epamtraining.iht.composite.TextComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.awt.*;
 
 public abstract class AbstractParser {
     public AbstractParser nextParser;
@@ -30,9 +28,9 @@ public abstract class AbstractParser {
 //        return nextParser.parse(stringForParsing);
 //    }
 
-    public abstract Component parse(String stringForParsing);
+    public abstract TextComponent parse(String stringForParsing);
 
-    protected Component parseNext(String stringForParsing){
+    protected TextComponent parseNext(String stringForParsing){
 //        logger.info("parameter: String: " + stringForParsing);
         if(nextParser == null){
             logger.info("next parser: null" );
