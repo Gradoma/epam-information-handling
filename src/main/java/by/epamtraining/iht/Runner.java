@@ -9,13 +9,11 @@ import by.epamtraining.iht.reader.reader.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-
 public class Runner {
     private static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) throws Exception{
-        String name = "text_file.txt";
+        String name = "file/text_file.txt";
 
         FileReader reader = new FileReader();
         String textString = reader.getStrings(name);

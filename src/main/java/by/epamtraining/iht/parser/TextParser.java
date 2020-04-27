@@ -19,7 +19,6 @@ public class TextParser extends AbstractParser {
         // parsing to parag
         TextComponent textComponent = new TextComposite();
         Matcher matcher = PARAGRAPH.matcher(stringForParsing);
-//        String[] paragraphArray = stringForParsing.split(" ");
         TextComponent childComponent;
         int indexEnd = 0;
         while (matcher.find(indexEnd)){
