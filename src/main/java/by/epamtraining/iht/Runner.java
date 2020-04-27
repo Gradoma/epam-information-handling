@@ -25,7 +25,7 @@ public class Runner {
 
         System.out.println("result=" + sourceText);
 
-        TextComposite textComposite = (TextComposite)textComponent;
+//        TextComposite textComposite = (TextComposite)textComponent;
 //        List<TextComponent> list = textComposite.getChildComponents();
 //        for (TextComponent c : list){
 //            String s = c.toString();
@@ -33,7 +33,10 @@ public class Runner {
 //        }
 
         TextAction action = new TextAction();
-        action.sortParagBySentences(textComposite);
-        System.out.println(textComposite.getChildComponents());
+//        action.sortParagBySentences(textComponent);
+//        System.out.println(textComponent.getChildComponents());
+
+
+        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
     }
 }

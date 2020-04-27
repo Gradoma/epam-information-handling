@@ -14,6 +14,7 @@ public class TextComposite implements TextComponent {
     }
 
     public List<TextComponent> getChildComponents() {
+//        return new ArrayList<>(childComponents);
         return childComponents;
     }
 
