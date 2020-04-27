@@ -4,8 +4,7 @@ import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.exception.UnhandledOperationException;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class TextAction {
 
@@ -34,4 +33,18 @@ public class TextAction {
         }
         return resultSentence;
     }
+
+    public void removeSentences(TextComponent component, int lexemCounter) throws UnhandledOperationException{
+        List<TextComponent> parag = component.getChildComponents();
+        for(TextComponent par : parag) {
+            List<TextComponent> sentenceList = par.getChildComponents();
+            for (Iterator<TextComponent> iterator = sentenceList.iterator(); iterator.hasNext();) {
+                TextComponent sentence = iterator.next();
+                if (sentence.getChildComponents().size() < lexemCounter) {
+                    iterator.remove();
+                }
+            }
+        }
+    }
+
 }

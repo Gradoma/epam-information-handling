@@ -38,5 +38,8 @@ public class Runner {
 
 
         System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
+
+        action.removeSentences(textComponent, 5);
+        System.out.println("after remove=" + textComponent.toString());
     }
 }
