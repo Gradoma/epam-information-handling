@@ -56,7 +56,7 @@ public class TextAction {
             for (TextComponent s : sent) {
                 List<TextComponent> lexemList = s.getChildComponents();
                 for (TextComponent l : lexemList) {
-                    String word = l.toString().strip();
+                    String word = l.toString().strip().toUpperCase();
                     if (!word.isEmpty()) {
                         operationList.add(word);
                     }
@@ -69,7 +69,7 @@ public class TextAction {
             String candidateWord = operationList.get(i);
             for (Iterator<String> iterator = operationList.listIterator(i + 1); iterator.hasNext(); ) {
                 String nextWord = iterator.next();
-                if (candidateWord.equalsIgnoreCase(nextWord)) {
+                if (candidateWord.equals(nextWord)) {
                     if (!identicalWordsCounter.containsKey(candidateWord)) {
                         identicalWordsCounter.put(candidateWord, 2);
                     } else {
@@ -77,31 +77,6 @@ public class TextAction {
                     }
                 }
             }
-
-
-//        Map<String, Integer> identicalWordsCounter = new HashMap<>();
-//        for (String s : operationList){
-//            System.out.println("template=" + s);
-//            if (!identicalWordsCounter.containsKey(s)){
-//                identicalWordsCounter.put(s, 1);
-//            } else {
-//                identicalWordsCounter.put(s, identicalWordsCounter.get(s) + 1);
-//            }
-//        }
-//
-//        boolean hasUniqWord = true;
-//        while (hasUniqWord){
-//            hasUniqWord = false;
-//            for(){
-//                if (identicalWordsCounter. == 1){
-//
-//                }
-//            }
-//            if (identicalWordsCounter.containsValue(1)){
-//                hasUniqWord = true;
-//                String uniqWord = identicalWordsCounter.
-//            }
-//        }
         }
         System.out.println(identicalWordsCounter);
         return operationList;
