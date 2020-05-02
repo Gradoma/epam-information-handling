@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TextComposite implements TextComponent {
     private List<TextComponent> childComponents = new ArrayList<>();
+    private final ComponentType type = ComponentType.COMPOSITE;
 
     @Override
     public void add(TextComponent textComponent) {
@@ -14,8 +15,11 @@ public class TextComposite implements TextComponent {
     }
 
     public List<TextComponent> getChildComponents() {
-//        return new ArrayList<>(childComponents);
         return childComponents;
+    }
+
+    public ComponentType getType(){
+        return type;
     }
 
     @Override
@@ -23,6 +27,7 @@ public class TextComposite implements TextComponent {
         StringBuilder stringBuilder = new StringBuilder();
         for (TextComponent component : childComponents){
             stringBuilder.append(component.toString());
+            stringBuilder.append(type.toString());
         }
         return stringBuilder.toString();
     }
@@ -39,6 +44,9 @@ public class TextComposite implements TextComponent {
             return false;
         }
         TextComposite composite = (TextComposite) o;
+        if(type != composite.type){
+            return false;
+        }
         if(childComponents == null){
             return composite.childComponents == null;
         }
@@ -47,9 +55,10 @@ public class TextComposite implements TextComponent {
 
     @Override
     public int hashCode() {
+        int result = type.hashCode();
         if (childComponents != null){
-            return childComponents.hashCode();
+            result = result + childComponents.hashCode();
         }
-        return 0;
+        return result;
     }
 }

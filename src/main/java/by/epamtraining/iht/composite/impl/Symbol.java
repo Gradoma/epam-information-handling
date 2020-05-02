@@ -7,11 +7,10 @@ import java.util.List;
 
 public class Symbol implements TextComponent {
     private char symbol;
-    private ComponentType type;
+    private final ComponentType type = ComponentType.SYMBOL;
 
     public Symbol(char symbol){
         this.symbol = symbol;
-        type = ComponentType.SYMBOL;
     }
 
     public char getSymbol() {
@@ -38,7 +37,10 @@ public class Symbol implements TextComponent {
 
     @Override
     public String toString() {
-        return Character.toString(symbol);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(symbol);
+        stringBuilder.append(type.toString());
+        return stringBuilder.toString();
     }
 
     @Override
