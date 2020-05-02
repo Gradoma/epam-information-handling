@@ -1,9 +1,10 @@
-package by.epamtraining.iht.parser;
+package by.epamtraining.iht.parser.impl;
 
 import by.epamtraining.iht.composite.TextComponent;
 import by.epamtraining.iht.composite.impl.Symbol;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.exception.UnhandledOperationException;
+import by.epamtraining.iht.parser.AbstractParser;
 
 public class LexemParser extends AbstractParser {
 

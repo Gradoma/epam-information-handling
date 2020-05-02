@@ -2,10 +2,9 @@ package by.epamtraining.iht;
 
 import by.epamtraining.iht.action.TextAction;
 import by.epamtraining.iht.composite.TextComponent;
-import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.parser.AbstractParser;
-import by.epamtraining.iht.parser.TextParser;
-import by.epamtraining.iht.reader.reader.FileReader;
+import by.epamtraining.iht.parser.impl.TextParser;
+import by.epamtraining.iht.reader.impl.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

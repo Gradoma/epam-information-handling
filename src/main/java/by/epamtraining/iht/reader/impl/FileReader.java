@@ -1,4 +1,4 @@
-package by.epamtraining.iht.reader.reader;
+package by.epamtraining.iht.reader.impl;
 
 import by.epamtraining.iht.exception.SourceFileNotFoundException;
 import by.epamtraining.iht.reader.Reader;
@@ -36,7 +36,7 @@ public class FileReader implements Reader {
         }
         try (Stream<String> streamLines = Files.lines(filePath)){
             String resultString = streamLines.collect(Collectors.joining());
-            logger.info("reader result: " + resultString);
+            logger.info("impl result: " + resultString);
             return resultString;
         } catch (IOException e){
             logger.fatal("IOException");

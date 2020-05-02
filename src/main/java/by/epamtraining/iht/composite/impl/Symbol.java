@@ -7,9 +7,11 @@ import java.util.List;
 
 public class Symbol implements TextComponent {
     private char symbol;
+    private ComponentType type;
 
     public Symbol(char symbol){
         this.symbol = symbol;
+        type = ComponentType.SYMBOL;
     }
 
     public char getSymbol() {
@@ -18,6 +20,10 @@ public class Symbol implements TextComponent {
 
     public void setSymbol(char symbol) {
         this.symbol = symbol;
+    }
+
+    public ComponentType getType() {
+        return type;
     }
 
     @Override
@@ -48,11 +54,16 @@ public class Symbol implements TextComponent {
         }
         Symbol symbol1 = (Symbol) o;
 
+        if (type != symbol1.type){
+            return false;
+        }
         return symbol == symbol1.symbol;
     }
 
     @Override
     public int hashCode() {
-        return (int) symbol;
+        int result = (int) symbol;
+        result = 31 * result + type.hashCode();
+        return result;
     }
 }
