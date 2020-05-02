@@ -35,11 +35,13 @@ public class Runner {
         TextAction action = new TextAction();
 //        action.sortParagBySentences(textComponent);
 //        System.out.println(textComponent.getChildComponents());
+//
+//
+//        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
+//
+//        action.removeSentences(textComponent, 5);
+//        System.out.println("after remove=" + textComponent.toString());
 
-
-        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
-
-        action.removeSentences(textComponent, 5);
-        System.out.println("after remove=" + textComponent.toString());
+        action.findIdenticalLexems(textComponent);
     }
 }
