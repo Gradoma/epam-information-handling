@@ -1,6 +1,6 @@
-package by.epamtraining.iht.composite;
+package by.epamtraining.iht.entity;
 
-import by.epamtraining.iht.composite.impl.ComponentType;
+import by.epamtraining.iht.entity.impl.ComponentType;
 import by.epamtraining.iht.exception.UnhandledOperationException;
 
 import java.util.List;

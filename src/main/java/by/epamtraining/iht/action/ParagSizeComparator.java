@@ -1,6 +1,6 @@
 package by.epamtraining.iht.action;
 
-import by.epamtraining.iht.composite.impl.TextComposite;
+import by.epamtraining.iht.entity.impl.TextComposite;
 
 import java.util.Comparator;
 

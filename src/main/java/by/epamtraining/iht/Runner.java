@@ -1,7 +1,6 @@
 package by.epamtraining.iht;
 
-import by.epamtraining.iht.action.TextAction;
-import by.epamtraining.iht.composite.TextComponent;
+import by.epamtraining.iht.entity.TextComponent;
 import by.epamtraining.iht.parser.AbstractParser;
 import by.epamtraining.iht.parser.impl.TextParser;
 import by.epamtraining.iht.reader.impl.FileReader;
@@ -15,7 +14,7 @@ public class Runner {
         String name = "file/text_file.txt";
 
         FileReader reader = new FileReader();
-        String textString = reader.getStrings(name);
+        String textString = reader.readStrings(name);
         System.out.println(textString);
 
         AbstractParser parser = new TextParser();
@@ -31,12 +30,12 @@ public class Runner {
 //            System.out.println("child=" + s);
 //        }
 
-        TextAction action = new TextAction();
+//        TextAction action = new TextAction();
 //        action.sortParagBySentences(textComponent);
 //        System.out.println(textComponent.getChildComponents());
 //
 //
-        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
+//        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
 //
 //        action.removeSentences(textComponent, 5);
 //        System.out.println("after remove=" + textComponent.toString());

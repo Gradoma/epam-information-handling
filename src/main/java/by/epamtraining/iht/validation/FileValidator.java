@@ -24,7 +24,7 @@ public class FileValidator {
         if(size > 0){
             result = false;
         }
-        logger.info("result: " + result);
+        logger.info("is file empty: " + result);
         return result;
     }
 }

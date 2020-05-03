@@ -1,6 +1,7 @@
 package by.epamtraining.iht.parser;
 
-import by.epamtraining.iht.composite.TextComponent;
+import by.epamtraining.iht.entity.TextComponent;
+import by.epamtraining.iht.exception.IncorrectParserStructureException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,26 +17,14 @@ public abstract class AbstractParser {
         return nextParser;
     }
 
-//    public abstract boolean parse(String stringForParsing);
+    public abstract TextComponent parse(String stringForParsing) throws IncorrectParserStructureException;
 
-//    protected boolean parseNext(String stringForParsing){
-//        logger.info("parameter: String: " + stringForParsing);
-//        if(nextParser == null){
-//            logger.info("next Parser is null, end of chain");
-//            return false;
-//        }
-//        logger.info("next parser: " + nextParser.getClass().getName());
-//        return nextParser.parse(stringForParsing);
-//    }
-
-    public abstract TextComponent parse(String stringForParsing);
-
-    protected TextComponent parseNext(String stringForParsing){
-//        logger.info("parameter: String: " + stringForParsing);
+    protected TextComponent parseNext(String stringForParsing) throws IncorrectParserStructureException{
         if(nextParser == null){
             logger.info("next parser: null" );
             return null;
         }
+        logger.info("next parser: " + nextParser.toString());
         return nextParser.parse(stringForParsing);
     }
 }

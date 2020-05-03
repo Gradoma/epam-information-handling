@@ -1,19 +1,23 @@
 package by.epamtraining.iht.action;
 
-import by.epamtraining.iht.composite.TextComponent;
-import by.epamtraining.iht.composite.impl.TextComposite;
+import by.epamtraining.iht.entity.TextComponent;
 import by.epamtraining.iht.exception.UnhandledOperationException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
 public class TextAction {
+    private static Logger logger = LogManager.getLogger();
 
     public void sortParagBySentences(TextComponent component) throws UnhandledOperationException {
+        logger.info("parameter: TextComponent: " + component);
         Comparator comparator = new ParagSizeComparator();
         component.getChildComponents().sort(comparator);
     }
 
     public String findSentenceWithLongestWord(TextComponent component) throws UnhandledOperationException {
+        logger.info("parameter: TextComponent: " + component);
         int maxLength = -1;
         String resultSentence = null;
         List<TextComponent> parag = component.getChildComponents();
@@ -25,22 +29,25 @@ public class TextAction {
                     String lexemString = lex.toString();
                     if (lexemString.length() > maxLength) {
                         maxLength = lexemString.length();
+                        logger.info("new max word length = " + maxLength);
                         resultSentence = s.toString();
                     }
                 }
-
             }
         }
+        logger.info("result sentence: " + resultSentence);
         return resultSentence;
     }
 
     public void removeSentences(TextComponent component, int lexemCounter) throws UnhandledOperationException {
+        logger.info("parameter: TextComponent: " + component);
         List<TextComponent> parag = component.getChildComponents();
         for (TextComponent par : parag) {
             List<TextComponent> sentenceList = par.getChildComponents();
             for (Iterator<TextComponent> iterator = sentenceList.iterator(); iterator.hasNext(); ) {
                 TextComponent sentence = iterator.next();
                 if (sentence.getChildComponents().size() < lexemCounter) {
+                    logger.info("sentence for removing: " + sentence);
                     iterator.remove();
                 }
             }
@@ -48,6 +55,7 @@ public class TextAction {
     }
 
     public Map<String, Integer> findIdenticalLexems(TextComponent component) throws UnhandledOperationException {
+        logger.info("parameter: TextComponent: " + component);
         List<String> operationList = new ArrayList<>();
         Map<String, Integer> identicalWordsCounter = new HashMap<>();
         List<TextComponent> parag = component.getChildComponents();
@@ -63,21 +71,34 @@ public class TextAction {
                 }
             }
         }
-        System.out.println("==before==" + operationList);
         for (int i = 0; i < operationList.size() - 1; i++) {
-            String candidateWord = operationList.get(i);
+            String checkWord = operationList.get(i);
+            logger.info("check word: " + checkWord);
             for (Iterator<String> iterator = operationList.listIterator(i + 1); iterator.hasNext(); ) {
                 String nextWord = iterator.next();
-                if (candidateWord.equals(nextWord)) {
-                    if (!identicalWordsCounter.containsKey(candidateWord)) {
-                        identicalWordsCounter.put(candidateWord, 2);
+                if (checkWord.equals(nextWord)) {
+                    if (!identicalWordsCounter.containsKey(checkWord)) {
+                        identicalWordsCounter.put(checkWord, 2);
+                        logger.info("match: word added to result Map");
                     } else {
-                        identicalWordsCounter.put(candidateWord, identicalWordsCounter.get(candidateWord) + 1);
+                        identicalWordsCounter.put(checkWord, identicalWordsCounter.get(checkWord) + 1);
+                        logger.info("match: word already contains in result Map; value increased");
                     }
                 }
             }
         }
-        System.out.println(identicalWordsCounter);
+        logger.info("result Map: " + identicalWordsCounter);
         return identicalWordsCounter;
     }
+
+//    private TextComponent findCompositeType(TextComponent component) throws UnhandledOperationException{
+//        ComponentType necessaryType = ComponentType.LEXEM;
+//        if (component.getType() == necessaryType){
+//            return component;
+//        }
+//        List<TextComponent> childComponents = component.getChildComponents();
+//        for (TextComponent textComponent : childComponents) {
+//            return findCompositeType(textComponent);
+//        }
+//    }
 }
