@@ -47,7 +47,7 @@ public class TextAction {
         }
     }
 
-    public List<String> findIdenticalLexems(TextComponent component) throws UnhandledOperationException {
+    public Map<String, Integer> findIdenticalLexems(TextComponent component) throws UnhandledOperationException {
         List<String> operationList = new ArrayList<>();
         Map<String, Integer> identicalWordsCounter = new HashMap<>();
         List<TextComponent> parag = component.getChildComponents();
@@ -63,7 +63,6 @@ public class TextAction {
                 }
             }
         }
-
         System.out.println("==before==" + operationList);
         for (int i = 0; i < operationList.size() - 1; i++) {
             String candidateWord = operationList.get(i);
@@ -79,6 +78,6 @@ public class TextAction {
             }
         }
         System.out.println(identicalWordsCounter);
-        return operationList;
+        return identicalWordsCounter;
     }
 }

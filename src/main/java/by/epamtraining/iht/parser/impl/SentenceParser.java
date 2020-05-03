@@ -1,6 +1,7 @@
 package by.epamtraining.iht.parser.impl;
 
 import by.epamtraining.iht.composite.TextComponent;
+import by.epamtraining.iht.composite.impl.ComponentType;
 import by.epamtraining.iht.composite.impl.TextComposite;
 import by.epamtraining.iht.exception.UnhandledOperationException;
 import by.epamtraining.iht.parser.AbstractParser;
@@ -20,7 +21,7 @@ public class SentenceParser extends AbstractParser {
     @Override
     public TextComponent parse(String stringForParsing) {
         //
-        TextComponent sentenceComponent = new TextComposite();
+        TextComponent sentenceComponent = new TextComposite(ComponentType.SENTENCE);
         Matcher matcher = LEXEM.matcher(stringForParsing);
         List<String> lexemList = new ArrayList<>();
         while (matcher.find()){

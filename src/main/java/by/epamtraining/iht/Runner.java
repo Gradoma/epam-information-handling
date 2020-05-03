@@ -36,11 +36,11 @@ public class Runner {
 //        System.out.println(textComponent.getChildComponents());
 //
 //
-//        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
+        System.out.println("longest=" + action.findSentenceWithLongestWord(textComponent));
 //
 //        action.removeSentences(textComponent, 5);
 //        System.out.println("after remove=" + textComponent.toString());
 
-        action.findIdenticalLexems(textComponent);
+//        action.findIdenticalLexems(textComponent);
     }
 }

@@ -7,7 +7,11 @@ import java.util.List;
 
 public class TextComposite implements TextComponent {
     private List<TextComponent> childComponents = new ArrayList<>();
-    private final ComponentType type = ComponentType.COMPOSITE;
+    private ComponentType type;
+
+    public TextComposite(ComponentType type){
+        this.type = type;
+    }
 
     @Override
     public void add(TextComponent textComponent) {
@@ -27,7 +31,6 @@ public class TextComposite implements TextComponent {
         StringBuilder stringBuilder = new StringBuilder();
         for (TextComponent component : childComponents){
             stringBuilder.append(component.toString());
-            stringBuilder.append(type.toString());
         }
         return stringBuilder.toString();
     }

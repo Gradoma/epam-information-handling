@@ -37,10 +37,7 @@ public class Symbol implements TextComponent {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(symbol);
-        stringBuilder.append(type.toString());
-        return stringBuilder.toString();
+        return Character.toString(symbol);
     }
 
     @Override
