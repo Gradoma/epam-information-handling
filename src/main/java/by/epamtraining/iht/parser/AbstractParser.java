@@ -13,10 +13,6 @@ public abstract class AbstractParser {
         this.nextParser = nextParser;
     }
 
-    public AbstractParser getNextParser() {
-        return nextParser;
-    }
-
     public abstract TextComponent parse(String stringForParsing) throws IncorrectParserStructureException;
 
     protected TextComponent parseNext(String stringForParsing) throws IncorrectParserStructureException{
