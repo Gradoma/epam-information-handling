@@ -9,8 +9,6 @@ import by.epamtraining.iht.parser.AbstractParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,16 +23,12 @@ public class ParagraphParser extends AbstractParser {
     @Override
     public TextComponent parse(String stringForParsing) throws IncorrectParserStructureException {
         logger.info("parameter: String: " + stringForParsing);
-        List<String> sentenceList = new ArrayList<>();
+        TextComponent paragraphComponent = new TextComposite(ComponentType.PARAGRAPH);
         Matcher matcher = SENTENCE.matcher(stringForParsing);
+        TextComponent childComponent;
         while (matcher.find()) {
             logger.info("match: sentence: " + matcher.group());
-            sentenceList.add(matcher.group());
-        }
-        TextComponent paragraphComponent = new TextComposite(ComponentType.PARAGRAPH);
-        TextComponent childComponent;
-        for (String sentence : sentenceList){
-            childComponent = parseNext(sentence);
+            childComponent = parseNext(matcher.group());
             try{
                 paragraphComponent.add(childComponent);
             } catch (UnhandledOperationException e){

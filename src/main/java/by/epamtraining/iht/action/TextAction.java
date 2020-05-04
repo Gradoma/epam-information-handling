@@ -90,15 +90,4 @@ public class TextAction {
         logger.info("result Map: " + identicalWordsCounter);
         return identicalWordsCounter;
     }
-
-//    private TextComponent findCompositeType(TextComponent component) throws UnhandledOperationException{
-//        ComponentType necessaryType = ComponentType.LEXEM;
-//        if (component.getType() == necessaryType){
-//            return component;
-//        }
-//        List<TextComponent> childComponents = component.getChildComponents();
-//        for (TextComponent textComponent : childComponents) {
-//            return findCompositeType(textComponent);
-//        }
-//    }
 }

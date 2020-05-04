@@ -11,7 +11,7 @@ public class Runner {
     private static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) throws Exception{
-        String name = "file/text_file.txt";
+        String name = "src/main/resources/file/text_file.txt";
 
         FileReader reader = new FileReader();
         String textString = reader.readStrings(name);

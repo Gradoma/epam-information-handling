@@ -9,8 +9,6 @@ import by.epamtraining.iht.parser.AbstractParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,14 +25,10 @@ public class SentenceParser extends AbstractParser {
         logger.info("parameter: String: " + stringForParsing);
         TextComponent sentenceComponent = new TextComposite(ComponentType.SENTENCE);
         Matcher matcher = LEXEM.matcher(stringForParsing);
-        List<String> lexemList = new ArrayList<>();
+        TextComponent childComponent;
         while (matcher.find()){
             logger.info("match: lexem: " + matcher.group());
-            lexemList.add(matcher.group());
-        }
-        TextComponent childComponent;
-        for (String lexem : lexemList){
-            childComponent = super.parseNext(lexem);
+            childComponent = super.parseNext(matcher.group());
             try{
                 sentenceComponent.add(childComponent);
             } catch (UnhandledOperationException e){

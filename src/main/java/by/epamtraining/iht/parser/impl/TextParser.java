@@ -40,16 +40,6 @@ public class TextParser extends AbstractParser {
                 throw new IncorrectParserStructureException(e);
             }
         }
-
-//        for (String parag : paragraphArray){
-//            childComponent = parseNext(parag);
-//            try{
-//                textComponent.add(childComponent);
-//            } catch (UnhandledOperationException e){
-//                System.out.println("incorrect chain structure");
-//            }
-//
-//        }
         logger.info("result TextComponent: " + textComponent);
         return textComponent;
     }
