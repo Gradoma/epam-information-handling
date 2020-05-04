@@ -1,7 +1,6 @@
 package by.epamtraining.iht.parser.impl;
 
 import by.epamtraining.iht.entity.TextComponent;
-import by.epamtraining.iht.entity.impl.ComponentType;
 import by.epamtraining.iht.entity.impl.TextComposite;
 import by.epamtraining.iht.exception.IncorrectParserStructureException;
 import by.epamtraining.iht.exception.UnhandledOperationException;
@@ -23,7 +22,7 @@ public class SentenceParser extends AbstractParser {
     @Override
     public TextComponent parse(String stringForParsing) throws IncorrectParserStructureException {
         logger.info("parameter: String: " + stringForParsing);
-        TextComponent sentenceComponent = new TextComposite(ComponentType.SENTENCE);
+        TextComponent sentenceComponent = new TextComposite();
         Matcher matcher = LEXEM.matcher(stringForParsing);
         TextComponent childComponent;
         while (matcher.find()){
